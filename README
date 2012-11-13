@@ -1,3 +1,4 @@
-This PHP class can be used to read configuration options from ini files
+This PHP class can be used to read configuration options from ini files.
+Supports multidimensional arrays
 
 Copyright (C) 2012  Mark Rolich
