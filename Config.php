@@ -10,16 +10,17 @@ class Config
     */
     private $data;
 
-	/**
-	* Constructor
-	*
+    /**
+    * Constructor
+    *
     * Determines environment, mixes global configuration settings
     * and some server variables
     * with determined environment settings
     *
-	* @param $config mixed - array of predefined options
-	*/
-    public function __construct($config) {
+    * @param $config mixed - array of predefined options
+    */
+    public function __construct($config)
+    {
         extract($_SERVER);
 
         $env = (isset($config[$HTTP_HOST]))
@@ -45,27 +46,28 @@ class Config
         $this->data = $data;
     }
 
-	/**
-	* Getter for properties from global settings array
-	* Supports getting single option or group of options
+    /**
+    * Getter for properties from global settings array
+    * Supports getting single option or group of options
     * Dots contained in keys of groupped options
     * are replaced with underscores.
     *
     * Example:
     * $config = array(
-    *    'db.host'       => 'localhost',
-    *    'db.mysql.user' => 'root',
-    *    'db.mysql.pwd'  => ''
+    * 'db.host' => 'localhost',
+    * 'db.mysql.user' => 'root',
+    * 'db.mysql.pwd' => ''
     * );
     *
     * $conf = new Config($config);
     * $conf->db will return array with following keys:
     * host, mysql_user and mysql_pwd
     *
-	* @param $name string - name of property (key of global settings array)
-	* @return mixed - value of property / array of properties
-	*/
-    public function __get($name) {
+    * @param $name string - name of property (key of global settings array)
+    * @return mixed - value of property / array of properties
+    */
+    public function __get($name)
+    {
         $value = null;
 
         if (isset($this->data[$name])) {
